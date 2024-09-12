@@ -1,6 +1,3 @@
-[![](https://images.microbadger.com/badges/image/fjudith/samba-join-ad.svg)](https://microbadger.com/images/fjudith/samba-join-ad "Get your own image badge on microbadger.com")
-[![Build Status](https://travis-ci.org/fjudith/docker-samba-join-ad.svg?branch=master)](https://travis-ci.org/fjudith/docker-samba-join-ad)
-
 # Introduction
 
 Samba : the standard Windows interoperability suite of programs for Linux and Unix.
@@ -12,7 +9,8 @@ Run the Samba image.
 > Replace <host ip address> by the local ip of the machine executing docker runtime.
 
 ```shell
-docker run -it --rm --add-host "docker-smb.localdomain.loc docker-smb":<host ip address> \
+docker run -d
+--add-host "docker-smb.localdomain.loc docker-smb":<host ip address> \
 --hostname docker-smb \
 -e TZ=Etc/UTC
 -e DOMAIN_NAME=localdomain.loc \
@@ -20,6 +18,8 @@ docker run -it --rm --add-host "docker-smb.localdomain.loc docker-smb":<host ip 
 -e WORKGROUP=localdomain \
 -e AD_USERNAME=Administrator \
 -e AD_PASSWORD=V3rY1ns3cur3P4ssw0rd \
+-v /data/fileserver/samba:/etc/samba \
+-v /path/to/share:/shares/share_name \
 -p 137:137/udp \
 -p 138:138/udp \
 -p 139:139/tcp \
