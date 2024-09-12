@@ -212,22 +212,22 @@ crudini --set $SAMBA_CONF global "kerberos method" "$KERBEROS_METHOD"
 
 
 # home shared directory (restricted to owner)
-crudini --set $SAMBA_CONF homes "comment" "Home Directories"
-crudini --set $SAMBA_CONF homes "path" "%H"
-crudini --set $SAMBA_CONF homes "public" "no"
-crudini --set $SAMBA_CONF homes "guest ok" "no"
-crudini --set $SAMBA_CONF homes "read only" "yes"
-crudini --set $SAMBA_CONF homes "writeable" "no"
-crudini --set $SAMBA_CONF homes "create mask" "0777"
-crudini --set $SAMBA_CONF homes "directory mask" "0777"
-crudini --set $SAMBA_CONF homes "browseable" "no"
-crudini --set $SAMBA_CONF homes "printable" "no"
-crudini --set $SAMBA_CONF homes "oplocks" "yes"
-crudini --set $SAMBA_CONF homes "valid users" "%S"
-crudini --set $SAMBA_CONF homes "hide unreadable" "yes"
-crudini --set $SAMBA_CONF homes "hide dot files" "yes"
-crudini --set $SAMBA_CONF homes "inherit acls" "yes"
-crudini --set $SAMBA_CONF homes "acl allow execute always" "yes"
+# crudini --set $SAMBA_CONF homes "comment" "Home Directories"
+# crudini --set $SAMBA_CONF homes "path" "%H"
+# crudini --set $SAMBA_CONF homes "public" "no"
+# crudini --set $SAMBA_CONF homes "guest ok" "no"
+# crudini --set $SAMBA_CONF homes "read only" "yes"
+# crudini --set $SAMBA_CONF homes "writeable" "no"
+# crudini --set $SAMBA_CONF homes "create mask" "0777"
+# crudini --set $SAMBA_CONF homes "directory mask" "0777"
+# crudini --set $SAMBA_CONF homes "browseable" "no"
+# crudini --set $SAMBA_CONF homes "printable" "no"
+# crudini --set $SAMBA_CONF homes "oplocks" "yes"
+# crudini --set $SAMBA_CONF homes "valid users" "%S"
+# crudini --set $SAMBA_CONF homes "hide unreadable" "yes"
+# crudini --set $SAMBA_CONF homes "hide dot files" "yes"
+# crudini --set $SAMBA_CONF homes "inherit acls" "yes"
+# crudini --set $SAMBA_CONF homes "acl allow execute always" "yes"
 
 # private shared directory (restricted) - $SHARED_DIRECTORY ex: /tmp
 #mkdir -p "$SHARED_DIRECTORY"
@@ -297,8 +297,8 @@ fi
 pam-auth-update
 
 # adjusting environment for cron
-sed -i 1i"$(printenv | grep -E "^SHARED_DIRECTORY")" /etc/crontab
-sed -i 1i"$(printenv | grep -E "^GROUP_PREFIX")" /etc/crontab
+# sed -i 1i"$(printenv | grep -E "^SHARED_DIRECTORY")" /etc/crontab
+# sed -i 1i"$(printenv | grep -E "^GROUP_PREFIX")" /etc/crontab
 
 
 echo --------------------------------------------------
