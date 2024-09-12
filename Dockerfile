@@ -26,6 +26,7 @@ RUN apt-get -y update && apt-get dist-upgrade -y && \
         packagekit \
         supervisor \
         acl \
+        nano \
    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir -p /var/lib/samba/private
