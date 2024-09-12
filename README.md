@@ -19,6 +19,7 @@ docker run -d
 -e AD_USERNAME=Administrator \
 -e AD_PASSWORD=V3rY1ns3cur3P4ssw0rd \
 -v /data/fileserver/samba:/etc/samba \
+-v /data/fileserver/samba-var:/var/lib/samba/ \
 -v /path/to/share:/shares/share_name \
 -p 137:137/udp \
 -p 138:138/udp \
