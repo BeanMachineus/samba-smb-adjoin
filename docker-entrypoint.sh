@@ -92,7 +92,7 @@ cat > /etc/krb5.conf << EOL
 EOL
 
 echo --------------------------------------------------
-echo "Creating smb environment"
+echo "Checking smb environment"
 echo --------------------------------------------------
 if [[ ! -f /etc/samba/smb.conf ]]; then
 echo -n "Creating SMB.CONF... "
