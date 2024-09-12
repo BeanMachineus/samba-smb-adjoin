@@ -92,19 +92,9 @@ cat > /etc/krb5.conf << EOL
 EOL
 
 echo --------------------------------------------------
-echo "Adjusting hosts"
-echo --------------------------------------------------
-echo $(hostname -i)"     "$HOSTNAME\.$DOMAIN_NAME $HOSTNAME $(hostname -f) $(hostname)   > /etc/hosts
-hostname $HOSTNAME\.$DOMAIN_NAME
-
-echo --------------------------------------------------
 echo "Creating smb environment"
 echo --------------------------------------------------
-if [[  -f /etc/samba/smb.conf ]]; then
-	echo "Backing up ... "
-	mv -vf /etc/samba/smb.conf /etc/samba/smb.conf.original
-fi
-
+if [[ ! -f /etc/samba/smb.conf ]]; then
 echo -n "Creating SMB.CONF... "
 touch $SAMBA_CONF && echo "ok." || echo "FAILED"
 echo -n "Creating Samba Directories ..."
@@ -254,6 +244,11 @@ crudini --set $SAMBA_CONF homes "acl allow execute always" "yes"
 #crudini --set $SAMBA_CONF $SHARE_NAME "oplocks" "yes"
 #crudini --set $SAMBA_CONF $SHARE_NAME "hide unreadable" "yes"
 
+else
+echo --------------------------------------------------
+echo 'SMB Already Exists'
+echo --------------------------------------------------
+fi
 
 echo --------------------------------------------------
 echo 'Verifying Keytab file on LIB DIR'
