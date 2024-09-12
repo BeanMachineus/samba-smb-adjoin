@@ -1,6 +1,6 @@
 # Introduction
 
-My first Repo based off of fjudith/samba-join-ad and their Forks
+My first Repo mixed with both code of fjudith/samba-join-ad, other forks, and my own small fixes.
 
 Samba : the standard Windows interoperability suite of programs for Linux and Unix.
 This container aims to run a Samba server registered as a member of a given Active Directory domain.
