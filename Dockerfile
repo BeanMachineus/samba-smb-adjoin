@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM ubuntu:24.04
 
 ENV TZ=Brazil/East
 ENV DEBIAN_FRONTEND=noninteractive
@@ -8,6 +8,8 @@ RUN apt-get -y update && apt-get dist-upgrade -y && \
     apt-get -yqq --no-install-recommends install \
         crudini \
         dbus \
+	cron \
+	tzdata \
         realmd \
         krb5-user \
         libpam-krb5 \
@@ -19,6 +21,7 @@ RUN apt-get -y update && apt-get dist-upgrade -y && \
         samba-dsdb-modules \
         samba-client \
         samba-vfs-modules \
+	samba-common-bin \
         logrotate \
         attr \
         libpam-mount \
@@ -48,8 +51,3 @@ EXPOSE 137 138 139 445
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/conf.d/supervisord.conf"]
-
-
-
-
-
