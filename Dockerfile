@@ -1,6 +1,6 @@
-FROM ubuntu:24.04
+FROM debian:trixie
 
-ENV TZ=Brazil/East
+ENV TZ=America/New_York
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
@@ -25,10 +25,11 @@ RUN apt-get -y update && apt-get dist-upgrade -y && \
         logrotate \
         attr \
         libpam-mount \
-        policykit-1 \
+        polkitd \
         packagekit \
         supervisor \
         acl \
+        ntpsec \
         nano \
    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
